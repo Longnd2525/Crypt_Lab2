@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.notes-container {
+    margin-top: 20px;
+}
+
+.note-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Thêm vào file styles.css */
+.share-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.share-dialog input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.share-dialog button {
+    margin: 5px;
+}
+
+.note-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.note-item {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.note-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.note-size {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.note-info {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.note-info div {
+    margin: 5px 0;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.share-btn {
+    background: #4CAF50;
+}
+
+.delete-btn {
+    background: #f44336;
+}
+
+.share-btn, .delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.share-btn:hover, .delete-btn:hover {
+    opacity: 0.9;
+}

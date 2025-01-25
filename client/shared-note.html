@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Note - Secure Note Sharing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div id="shared-note-container" class="section">
+        <h2>Shared Note</h2>
+        <div id="note-content"></div>
+    </div>
+
+    <script>
+        async function loadSharedNote() {
+            const token = window.location.pathname.split('/').pop();
+            try {
+                const response = await fetch(`http://localhost:3000/api/notes/shared/${token}`);
+                const note = await response.json();
+                
+                if (note.encrypted_content) {
+                    const decrypted = EncryptionService.decryptFile(
+                        note.encrypted_content,
+                        note.encrypted_key
+                    );
+                    
+                    document.getElementById('note-content').innerHTML = `
+                        <div class="note-display">
+                            <pre>${decrypted}</pre>
+                            <p>Expires: ${new Date(note.expires_at).toLocaleString()}</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Load shared note error:', error);
+                document.getElementById('note-content').innerHTML = `
+                    <div class="error-message">
+                        This note has expired or is not available.
+                    </div>
+                `;
+            }
+        }
+
+        loadSharedNote();
+    </script>
+</body>
+</html>

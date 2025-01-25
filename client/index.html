@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Note Sharing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Section -->
+        <div id="auth-section" class="section">
+            <h2>Authentication</h2>
+            <div class="form-container">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button onclick="handleLogin()">Login</button>
+                <button onclick="handleRegister()">Register</button>
+            </div>
+        </div>
+
+        <!-- Notes Section -->
+        <div id="notes-section" class="section hidden">
+            <h2>My Notes</h2>
+            <div class="notes-container">
+                <div class="note-input">
+                    <input type="file" id="note-file">
+                    <input type="datetime-local" id="expiry-time">
+                    <button onclick="handleUploadNote()">Upload Note</button>
+                </div>
+                <div id="notes-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/encryption.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notes.js"></script>
+</body>
+</html>
